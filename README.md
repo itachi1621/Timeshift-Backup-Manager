@@ -47,13 +47,7 @@ chmod +x Timeshift-Backup-Manager
 sudo ./Timeshift-Backup-Manager.sh 
 
 ```
-**or**
 
-``` 
-
-sudo sh Timeshift-Backup-Manager.sh 
-
-```
 
 ## Usage 
 
