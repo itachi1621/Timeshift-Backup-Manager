@@ -9,7 +9,7 @@ sucess='\033[0;32m' #Green
 timeshift_installed_check() {
     if ! command -v timeshift &> /dev/null
     then
-        echo -e "${warning}Timeshift is not installed please install it first."
+        echo -e "${warning}Timeshift is not installed please install it first.${reset}"
         exit 1
     fi
 }
@@ -18,7 +18,7 @@ sudo_check() {
     if [ "$EUID" -ne 0 ]
     then
     #Timeshift needs to be run as root
-        echo -e "${warning}Please run this as root"
+        echo -e "${warning}Please run this as root${reset}"
         exit 1
     fi
 }
@@ -169,7 +169,15 @@ deletion_menu(){
             delete_backup "manual"
             ;;
         2)
-            delete_backup "all"
+            read -p "Are you sure ? this is the point of no return [y/N]: " response #Nuke confirmation
+            case $response in
+                [yY][eE][sS]|[yY])
+                    delete_backup "all"
+                    ;;
+                *)
+                    main_menu
+                    ;;
+            esac
             ;;
         3)
             main_menu
