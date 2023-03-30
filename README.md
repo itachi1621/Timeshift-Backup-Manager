@@ -40,18 +40,32 @@ chmod +x Timeshift-Backup-Manager
 ```
 4. Execute the script using
 
+ **Script needs to be run as root in order to access timeshift features**
+
 ``` 
 
-./Timeshift-Backup-Manager.sh 
+sudo ./Timeshift-Backup-Manager.sh 
 
 ```
 or
 
 ``` 
 
-sh Timeshift-Backup-Manager.sh 
+sudo sh Timeshift-Backup-Manager.sh 
 
 ```
+
+## Usage 
+
+
+![Timeshift backup manager menu](https://user-images.githubusercontent.com/62318474/228902206-57caadaf-0c49-4c31-9aad-552b79049acc.png)
+
+## Timeshift repos
+### Original Timeshift repo
+- https://github.com/teejee2008/timeshift
+### Linux Mint Repo
+- https://github.com/linuxmint/timeshift
+
 
 ## License
 This script is licensed under the MIT License.
