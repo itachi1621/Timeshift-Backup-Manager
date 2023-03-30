@@ -1,10 +1,15 @@
 #!/bin/bash
 # Timeshift Backup Manager
+warning='\033[0;31m' #Red
+reset='\033[0m' #No Color
+sucess='\033[0;32m' #Green
+#info='\033[0;33m' #Yellow
+
 
 timeshift_installed_check() {
     if ! command -v timeshift &> /dev/null
     then
-        echo "Timeshift is not installed please install it first."
+        echo -e "${warning}Timeshift is not installed please install it first."
         exit 1
     fi
 }
@@ -13,7 +18,7 @@ sudo_check() {
     if [ "$EUID" -ne 0 ]
     then
     #Timeshift needs to be run as root
-        echo "Please run this as root"
+        echo -e "${warning}Please run this as root"
         exit 1
     fi
 }
@@ -57,7 +62,7 @@ delete_backup() {
             ;;
 
         *)
-            echo "Invalid option"
+            echo -e "${warning}Invalid option ${reset}"
             exit 1
             ;;
     esac
@@ -77,14 +82,16 @@ restore_backup() {
 }
 
 main_menu(){
-    echo "Timeshift Backup Manager"
+    echo "------------------------------------"
+    echo -e "${sucess}Timeshift Backup Manager${reset}"
     echo "1. Create a backup"
     echo "2. List Backups"
     echo "3. Delete Backups"
     echo "4. Restore a Backup"
-    echo "5. Exit"
+    echo -e "${warning}5. Exit${reset}"
     
     read -p "Enter your choice: " choice
+    echo "------------------------------------"
     
     case $choice in
         1)
@@ -107,7 +114,8 @@ main_menu(){
             exit 0
             ;;
         *)
-            echo "Invalid option"
+        
+            echo -e "${warning}Invalid option${reset}"
             main_menu
             ;;
     esac
@@ -115,15 +123,16 @@ main_menu(){
 }
 
 backup_menu(){
-
+    echo "------------------------------------"
     echo "1. Create a Daily Backup"
     echo "2. Create a Weekly Backup"
     echo "3. Create a Monthly Backup"
     echo "4. Create a Manual Backup"
     echo "5. Return to main menu"
+    
 
     read -p "Enter your choice: " choice
-
+    echo "------------------------------------"
     case $choice in
         1)
             create_backup "daily"
@@ -141,20 +150,20 @@ backup_menu(){
             main_menu
             ;;
         *)
-            echo "Invalid option"
+            echo -e "${warning}Invalid option${reset}"
             backup_menu
             ;;
     esac
 }
 
 deletion_menu(){
-
+    echo "------------------------------------"
     echo "1. Delete a Backup"
     echo "2. Delete all Backups"
     echo "3. Return to main menu"
 
     read -p "Enter your choice: " choice
-
+    echo "------------------------------------"
     case $choice in
         1)
             delete_backup "manual"
@@ -166,7 +175,7 @@ deletion_menu(){
             main_menu
             ;;
         *)
-            echo "Invalid option"
+            echo -e "${warning}Invalid option${reset}"
             deletion_menu
             ;;
     esac
