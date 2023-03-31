@@ -78,7 +78,7 @@ sudo ./Timeshift-Backup-Manager.sh
 
 - Ubuntu Server 22.04 LTS
 - Ubuntu 22.04
-- Ubuntu 20.04 Server LTS
+- Ubuntu Server 20.04 LTS
 
 ## Timeshift repos
 ### Original Timeshift repo (Archived)
