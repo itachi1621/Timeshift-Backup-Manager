@@ -74,6 +74,11 @@ sudo ./Timeshift-Backup-Manager.sh
 
 ![Backup Restoration](https://user-images.githubusercontent.com/62318474/229013884-26e33ed9-ac99-4af7-9c56-50ae04c049e5.png)
 
+## Tested On
+
+- Ubuntu Server 22.04 LTS
+- Ubuntu 22.04
+- Ubuntu 20.04 Server LTS
 
 ## Timeshift repos
 ### Original Timeshift repo (Archived)
